@@ -10,16 +10,6 @@ with open('docker-compose.yml', 'r') as f:
 pg_config = compose_config['services']['db']
 
 # Connect to the PostgreSQL database
-
-#conn = psycopg2.connect(
-    #host='localhost',
-    #port=pg_config['ports'][0].split(':')[0],
-    #user=pg_config['environment']['POSTGRES_USER'],
-    #password=pg_config['environment']['POSTGRES_PASSWORD'],
-    #dbname='postgres'
-#)
-
-
 conn = psycopg2.connect(
     host="localhost",
     port=5432,
@@ -46,7 +36,7 @@ cur.execute('''
 
 # Read the data from the CSV file and insert it into the database
 
-with open(r'C:\Users\Clement\Documents\Profesional-dev\Postgres_docker\SRDataEngineerChallenge_DATASET.csv', 'r') as f:
+with open('SRDataEngineerChallenge_DATASET.csv', 'r') as f:
 
     header = f.readline().strip().split(',')
 
